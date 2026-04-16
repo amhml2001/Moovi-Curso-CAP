@@ -1,5 +1,6 @@
 # Moovi-Curso-CAP
 ---
+[[!img/Moovi.webp]]
 
 Repositório construído para armazenar os objeto criados durante o curso de CAP da Moovi. 
 
