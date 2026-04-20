@@ -1,0 +1,26 @@
+//Criar uma vairiável
+@localhost=localhost:4004/odata/v4/main
+
+GET http://{{localhost}}/SalesOrderHeaders
+Content-Type: application/json
+
+//separar cada requisição
+###
+POST http://{{localhost}}/SalesOrderHeaders
+Content-Type: application/json
+
+{}
+
+
+###
+DELETE http://{{localhost}}/SalesOrderHeaders(id=a526c9c9-2dc1-47bd-8c60-aedef0609bb9)
+Content-Type: application/json
+
+
+###
+PUT http://{{localhost}}/SalesOrderHeaders(fc1e4689-5b89-45d0-a2d4-640224de70a6)
+Content-Type: application/json
+
+{
+   "modifiedBy": "teste"
+}
