@@ -21,8 +21,8 @@ entity SalesOrderItems {
 
 entity Customers {
    key id: UUID;
-      firstname: String(20);
-      lastname: String(100);
+      firstName: String(20);
+      lastName: String(100);
       email: String(255);
 }
 
