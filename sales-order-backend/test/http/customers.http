@@ -1,0 +1,47 @@
+@localhost=localhost:4004/odata/v4/main
+@id=8ee638af-7838-4449-ad40-f95877cf52c6
+
+GET http://{{localhost}}/Customers
+Content-Type: application/json
+
+###
+POST http://{{localhost}}/Customers
+Content-Type: application/json
+
+{
+   "id": "{{id}}",
+   "firstName": "Lucas",
+   "lastName": "Cardoso",
+   "email": "lucas.cardoso@moovi.com"
+}
+
+# entity Customers {
+#    key id: UUID;
+#       firstName: String(20);
+#       lastName: String(100);
+#       email: String(255);
+# }
+
+###
+DELETE http://{{localhost}}/Customers(id={{id}})
+Content-Type: application/json
+
+
+###
+#Atualização total, atualiza todos os campos, se não foi passado dados ficará null
+PUT http://{{localhost}}/Customers({{id}})
+Content-Type: application/json
+
+{
+   "firstName": "teste"
+}
+
+###
+
+#Atualização parcial, apenas atualiza os campos passados
+PATCH http://{{localhost}}/Customers({{id}})
+Content-Type: application/json
+
+{
+   "firstName": "Antonio"
+}
