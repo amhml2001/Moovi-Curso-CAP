@@ -1,0 +1,45 @@
+@localhost=localhost:4004/odata/v4/main
+@id=6b9d24b2-f5e8-48e9-b11a-ccd33f4154fd
+
+GET http://{{localhost}}/Products
+Content-Type: application/json
+
+###
+POST http://{{localhost}}/Products
+Content-Type: application/json
+
+{
+   "id": "{{id}}",
+   "name": "Ferro",
+   "price": 2.99
+}
+
+###
+DELETE http://{{localhost}}/Products(id={{id}})
+Content-Type: application/json
+
+
+###
+#Atualização total, atualiza todos os campos, se não foi passado dados ficará null
+PUT http://{{localhost}}/Products({{id}})
+Content-Type: application/json
+
+{
+   "name": "teste"
+}
+
+###
+
+#Atualização parcial, apenas atualiza os campos passados
+PATCH http://{{localhost}}/Products({{id}})
+Content-Type: application/json
+
+{
+   "name": "Ferro"
+}
+
+# entity Products {
+#    key id: UUID;
+#       name: String(255);
+#       price: Decimal(15,2);
+# }

@@ -1,24 +1,60 @@
 //Criar uma vairiável
 @localhost=localhost:4004/odata/v4/main
+@id=d0b069b7-f619-4c77-b259-39a696ce734d
+@customerId=8ee638af-7838-4449-ad40-f95877cf52c6
+@productId=6b9d24b2-f5e8-48e9-b11a-ccd33f4154fd
 
 GET http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
 
 //separar cada requisição
 ###
+
+GET http://{{localhost}}/SalesOrderHeaders?$filter=id eq {{id}}&$expand=customer,items($expand=product)
+Content-Type: application/json
+
+###
+
 POST http://{{localhost}}/SalesOrderHeaders
 Content-Type: application/json
 
-{}
+{
+   "id": "{{id}}",
+   "customer_id": "{{customerId}}",
+   "totalAmount": 39.80,
+   "items": [
+      {
+         "id": "4888a952-e397-41eb-ac9a-c712d7d9d2f1",
+         "header_id": "{{id}}",
+         "product_id": "{{productId}}",
+         "quantity": 10,
+         "price": 2.99
+      },
+      {
+         "id": "d59029ae-4394-47bd-85b2-d161f6c796b8",
+         "header_id": "{{id}}",
+         "product_id": "{{productId}}",
+         "quantity": 5,
+         "price": 1.99
+      }
+   ]
+}
 
 
 ###
-DELETE http://{{localhost}}/SalesOrderHeaders(id=a526c9c9-2dc1-47bd-8c60-aedef0609bb9)
+DELETE http://{{localhost}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
 
 
 ###
-PUT http://{{localhost}}/SalesOrderHeaders(fc1e4689-5b89-45d0-a2d4-640224de70a6)
+PUT http://{{localhost}}/SalesOrderHeaders({{id}})
+Content-Type: application/json
+
+{
+   "modifiedBy": "teste"
+}
+
+PATCH http://{{localhost}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
 
 {
