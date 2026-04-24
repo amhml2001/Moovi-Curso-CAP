@@ -15,13 +15,6 @@ Content-Type: application/json
    "email": "lucas.cardoso@moovi.com"
 }
 
-# entity Customers {
-#    key id: UUID;
-#       firstName: String(20);
-#       lastName: String(100);
-#       email: String(255);
-# }
-
 ###
 DELETE http://{{localhost}}/Customers(id={{id}})
 Content-Type: application/json
@@ -45,3 +38,14 @@ Content-Type: application/json
 {
    "firstName": "Antonio"
 }
+
+###
+GET http://{{localhost}}/Customers?$filter=endswith(firstName,'-12345')
+Content-Type: application/json
+
+# entity Customers {
+#    key id: UUID;
+#       firstName: String(20);
+#       lastName: String(100);
+#       email: String(255);
+# }

@@ -61,3 +61,13 @@ Content-Type: application/json
 {
    "modifiedBy": "teste"
 }
+
+###
+# Filtrar pelo total menor ou igual a 200K
+GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount le 200000
+Content-Type: application/json
+
+###
+# Filtrar pelo total maior ou igual a 200K
+GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount ge 200000
+Content-Type: application/json
