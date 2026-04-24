@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "dev": "cds watch"
+    "dev": "cds watch",
+    "bug": "DEBUG=db cds watch"
   },
   "private": true
 }
