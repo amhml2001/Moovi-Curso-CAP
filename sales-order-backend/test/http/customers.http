@@ -49,6 +49,12 @@ Content-Type: application/json
 GET http://{{localhost}}/Customers?$search=287314
 Content-Type: application/json
 
+###
+# Ordenar por firstName crescente
+# asc = crescente  | desc = decrescente
+GET http://{{localhost}}/Customers?$orderby=firstName asc,lastName desc
+Content-Type: application/json
+
 # entity Customers {
 #    key id: UUID;
 #       firstName: String(20);
