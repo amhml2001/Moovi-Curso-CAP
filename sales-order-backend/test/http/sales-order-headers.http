@@ -53,8 +53,9 @@ Content-Type: application/json
 {
    "modifiedBy": "teste"
 }
-###
 
+
+###
 PATCH http://{{localhost}}/SalesOrderHeaders(id={{id}})
 Content-Type: application/json
 
@@ -62,27 +63,55 @@ Content-Type: application/json
    "modifiedBy": "teste"
 }
 
+
 ###
 # Filtrar pelo total menor ou igual a 200K
 GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount le 200000
 Content-Type: application/json
+
 
 ###
 # Filtrar pelo total maior ou igual a 200K
 GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount ge 200000
 Content-Type: application/json
 
+
 ###
 # Expandir o item e customer
 GET http://{{localhost}}/SalesOrderHeaders?$expand=items,customer
 Content-Type: application/json
+
 
 ###
 # Expandir customers e produto do item
 GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product), customer
 Content-Type: application/json
 
+
 ###
 # Expandir customers e produto do item + filtro no item
 GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product;$filter=quantity le 30), customer
+Content-Type: application/json
+
+
+###
+# Selecionar apenas os campos customer e id do sales order header e email e id de customer
+GET http://{{localhost}}/SalesOrderHeaders?$select=id,customer&$expand=customer($select=id,email)
+Content-Type: application/json
+
+
+###
+# Mostrar quantos registros tem
+GET http://{{localhost}}/SalesOrderHeaders/$count
+Content-Type: application/json
+
+
+###
+# Mostrar os primeiros 5 registros
+GET http://{{localhost}}/SalesOrderHeaders?$top=5
+Content-Type: application/json
+
+###
+# Pular os primeiros 5 registros
+GET http://{{localhost}}/SalesOrderHeaders?$skip=5&$top=5
 Content-Type: application/json
