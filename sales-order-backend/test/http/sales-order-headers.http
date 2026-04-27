@@ -71,3 +71,18 @@ Content-Type: application/json
 # Filtrar pelo total maior ou igual a 200K
 GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount ge 200000
 Content-Type: application/json
+
+###
+# Expandir o item e customer
+GET http://{{localhost}}/SalesOrderHeaders?$expand=items,customer
+Content-Type: application/json
+
+###
+# Expandir customers e produto do item
+GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product), customer
+Content-Type: application/json
+
+###
+# Expandir customers e produto do item + filtro no item
+GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product;$filter=quantity le 30), customer
+Content-Type: application/json
