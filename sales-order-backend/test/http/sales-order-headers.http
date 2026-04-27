@@ -115,3 +115,14 @@ Content-Type: application/json
 # Pular os primeiros 5 registros
 GET http://{{localhost}}/SalesOrderHeaders?$skip=5&$top=5
 Content-Type: application/json
+
+
+###
+# Buscar em campos string
+GET http://{{localhost}}/SalesOrderHeaders?$search=dwn2
+Content-Type: application/json
+
+###
+# Buscar em campos string + filter no totalamount
+GET http://{{localhost}}/SalesOrderHeaders?$search=dwn2&$filter=totalAmount le 5000000000000
+Content-Type: application/json
