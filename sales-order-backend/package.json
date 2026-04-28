@@ -10,13 +10,13 @@
     "@types/node": "^25.6.0",
     "git-commit-msg-linter": "^5.0.8",
     "tsx": "^4.21.0",
-    "ttypescript": "^1.5.15"
+    "typescript": "^6.0.3"
   },
   "scripts": {
     "start": "cds-serve",
     "dev": "cds watch",
     "bug": "DEBUG=db cds watch",
-    "tsx": "DEBUG=db cds-tsx watch"
+    "ts": "DEBUG=db cds-tsx watch"
   },
   "private": true
 }
