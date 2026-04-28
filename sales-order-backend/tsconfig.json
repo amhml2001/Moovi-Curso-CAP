@@ -8,7 +8,10 @@
    "noImplicitAny": true,
    "esModuleInterop": true,
    "outDir": "./dist",
-   "rootDir": "./"
+   "rootDir": "./",
+   "paths": {
+      "@models/*": ["./@cds-models/*/index.ts"]
+   }
   },
   "include": ["srv"],
   "exclude": ["node_modules"]
